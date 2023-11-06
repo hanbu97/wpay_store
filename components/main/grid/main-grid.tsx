@@ -7,7 +7,7 @@ interface MainGridProps {
 const MainGrid: FC<MainGridProps> = ({ children }) => {
   return (
     <>
-      <div className="relative isolate">
+      <div className="relative isolate bg-black">
         <svg
           className="absolute inset-0 -z-10 h-full w-full stroke-black/5 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
           aria-hidden="true"
