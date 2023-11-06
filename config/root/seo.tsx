@@ -4,8 +4,8 @@ export const seoData: SeoType = {
   title: "Multi-user, full-stack blogging application",
   subTitle:
     "Multi-user, full-stack blogging app built with Next.js and Supabase",
-  absoluteTitle: "Next.js | Blog app",
-  ogTitle: "Next.js | Supabase | Blog app",
+  absoluteTitle: "WPay: Payment & Store",
+  ogTitle: "WPay: Payment & Store",
   author: {
     name: "Tim",
     twitterUrl: "https://twitter.com/timtbdev",

@@ -76,17 +76,6 @@ const ProfileDropDown = () => {
           />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56 font-sans">
-          <Link
-            href={dashBoardProfile.slug || ""}
-            className="group inline-flex w-full items-center rounded-md bg-white px-3 py-2.5 hover:bg-gray-100"
-          >
-            <dashBoardProfile.icon className="mr-2 h-4 w-4 text-gray-500 group-hover:text-gray-900" />
-            <span className="text-sm text-gray-500 group-hover:text-gray-900">
-              {dashBoardProfile.title}
-            </span>
-          </Link>
-          <DropdownMenuSeparator />
-
           <button
             onClick={signOut}
             type="button"

@@ -16,8 +16,8 @@ const mainCategoryConfig: CategoryType[] = [
   },
   {
     id: "4db30a13-2797-4c7d-a0ce-e0c127287a39",
-    title: "Science",
-    slug: "science",
+    title: "PC",
+    slug: "pc",
     icon: CategoryScienceIcon,
   },
   {
@@ -28,14 +28,14 @@ const mainCategoryConfig: CategoryType[] = [
   },
   {
     id: "7b8781b0-b4fa-40e4-ac23-5310640eecd7",
-    title: "Marketing",
-    slug: "marketing",
+    title: "Card",
+    slug: "card",
     icon: CategoryMarketingIcon,
   },
   {
     id: "962f860d-ab0d-4650-ae93-8171c8b47169",
-    title: "Technology",
-    slug: "technology",
+    title: "Clothes",
+    slug: "clothes",
     icon: CategoryTechnologyIcon,
   },
 ];

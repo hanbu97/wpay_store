@@ -1,7 +1,7 @@
 const mainNewsLetterConfig = {
-  title: "Subscribe to our newsletter",
+  title: "Subscribe for latest sales.",
   description:
-    "The latest news, articles, and resources, sent to your inbox weekly.",
+    "The latest coupons, sales, and offers in the marketplace.",
   email: "Email address",
   subscribe: "Subscribe",
   warning: "You need to confirm your email address.",

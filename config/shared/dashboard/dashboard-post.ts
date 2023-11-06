@@ -1,10 +1,10 @@
 import { DashBoardType } from "@/types";
-import { FileTextIcon as PostIcon } from "lucide-react";
+import { FileTextIcon as PostIcon, ShoppingBag } from "lucide-react";
 
 const dashBoardPost: DashBoardType = {
-  title: "Posts",
+  title: "Products",
   slug: "/editor/posts",
-  icon: PostIcon,
+  icon: ShoppingBag,
 };
 
 export default dashBoardPost;

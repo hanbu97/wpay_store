@@ -1,6 +1,6 @@
 const mainBannerConfig = {
-  title: "Fullstack Blogging App",
-  description: "built with Next.js and Supabase.",
+  title: "WPay: ",
+  description: "Payment & Store Solution for Future.",
   link: "https://github.com/timtbdev/Next.js-Blog-App",
   button: "Github",
 };

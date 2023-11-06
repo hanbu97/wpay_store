@@ -25,7 +25,7 @@ export const statuses = [
 export const categories = [
   {
     value: "4db30a13-2797-4c7d-a0ce-e0c127287a39",
-    label: "Science",
+    label: "PC & Phone",
     icon: CategoryScienceIcon,
   },
   {

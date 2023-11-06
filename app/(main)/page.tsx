@@ -1,5 +1,5 @@
 import { MainPostItem, MainPostItemLoading } from "@/components/main";
-import { SharedPagination } from "@/components/shared";
+import { SharedEmpty, SharedPagination } from "@/components/shared";
 import { PostWithCategoryWithProfile } from "@/types/collection";
 import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
@@ -50,11 +50,15 @@ export default async function HomePage({ searchParams }: HomePageProps) {
   return (
     <>
       <div className="space-y-6">
-        {data?.map((post) => (
-          <Suspense key={v4()} fallback={<MainPostItemLoading />}>
-            <MainPostItem post={post} />
-          </Suspense>
-        ))}
+        {data?.length === 0 ? (
+          <SharedEmpty />
+        ) : (
+          data?.map((post) => (
+            <Suspense key={v4()} fallback={<MainPostItemLoading />}>
+              <MainPostItem post={post} />
+            </Suspense>
+          ))
+        )}
       </div>
       {/* Pagination */}
       {totalPages > 1 && (
