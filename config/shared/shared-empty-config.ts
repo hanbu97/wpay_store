@@ -1,6 +1,6 @@
 const sharedEmptyConfig = {
   title: "Empty",
-  description: "No Products to Display",
+  description: "No Products Available",
   error: "Something went wrong",
   tryAgain: "Try again",
   sorry: "Sorry",

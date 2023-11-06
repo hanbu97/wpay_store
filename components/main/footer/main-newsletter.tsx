@@ -86,7 +86,7 @@ const MainNewsletter = () => {
             <button
               disabled={isLoading}
               type="submit"
-              className="flex w-full border border-white items-center justify-center rounded-md bg-gray-400 bg-gradient-to-t from-gray-800 via-gray-900 to-gray-950 px-3 py-2 text-sm text-white shadow-md shadow-sm shadow-black/5 ring-1 ring-black/10 transition duration-200 hover:bg-gray-500 hover:bg-gradient-to-tr hover:from-gray-200 hover:via-gray-100 hover:to-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 active:scale-[96%] active:ring-black/20"
+              className="flex w-full border border-white items-center justify-center rounded-md bg-black  px-3 py-2 text-sm text-white shadow-md shadow-sm shadow-black/5 ring-1 ring-black/10 transition duration-200 hover:bg-black hover:from-gray-800 hover:via-gray-900 hover:to-gray-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 active:scale-[96%] active:ring-white/20"
             >
               {isLoading && (
                 <SpinnerIcon className="mr-2 h-6 w-6 animate-spin" />
