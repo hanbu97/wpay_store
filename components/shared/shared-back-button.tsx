@@ -25,7 +25,7 @@ const SharedBackButton: React.FC<BackButtonProps> = ({
         }
       }}
     >
-      <div className="rounded-full border border-slate-300 bg-slate-50 p-2.5 shadow-sm">
+      <div className="rounded-full border border-slate-100 bg-slate-50 p-2.5 shadow-sm">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

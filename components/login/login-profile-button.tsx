@@ -35,7 +35,7 @@ const LoginProfileButton: FC<LoginProfileButtonProps> = ({
       console.error(error);
     }
 
-    router.refresh();
+    router.replace('/');
   };
 
   return (

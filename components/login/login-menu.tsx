@@ -3,9 +3,11 @@
 import { Profile } from "@/types/collection";
 import { createClient } from "@/utils/supabase/client";
 import { Session } from "@supabase/supabase-js";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import LoginButton from "./login-button";
 import LoginProfileButton from "./login-profile-button";
+import { usePicket } from "@picketapi/picket-react";
+import { useRouter } from "next/router";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -48,6 +50,7 @@ const LoginMenu = () => {
       {session ? (
         <LoginProfileButton profileImageUrl={avatarUrl} />
       ) : (
+        // <LoginProfileButton profileImageUrl={avatarUrl} />
         <LoginButton />
       )}
     </>

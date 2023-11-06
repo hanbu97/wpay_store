@@ -11,6 +11,7 @@ import { shimmer, toBase64 } from "@/lib/utils";
 import { Profile } from "@/types/collection";
 import { createClient } from "@/utils/supabase/client";
 import { Session } from "@supabase/supabase-js";
+import { ro } from "date-fns/locale";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -28,7 +29,8 @@ const ProfileDropDown = () => {
       console.error(error);
     }
 
-    router.refresh();
+    // router.refresh();
+    router.replace("/");
   };
 
   useEffect(() => {

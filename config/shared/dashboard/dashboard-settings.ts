@@ -1,10 +1,10 @@
 import { DashBoardType } from "@/types";
-import { SettingsIcon } from "lucide-react";
+import { SettingsIcon, Wallet, WalletIcon } from "lucide-react";
 
 const dashBoardSettings: DashBoardType = {
-  title: "Settings",
+  title: "Wallet",
   slug: "/settings",
-  icon: SettingsIcon,
+  icon: WalletIcon,
 };
 
 export default dashBoardSettings;

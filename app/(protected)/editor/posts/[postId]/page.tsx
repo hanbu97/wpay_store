@@ -177,7 +177,7 @@ export default async function PostEditorPage({ params }: PostEditorPageProps) {
     <div className="max-w-5xl px-10">
       <div>
         <h3 className="text-lg font-medium">{protectedEditorConfig.title}</h3>
-        <p className="py-2 text-sm text-muted-foreground">
+        <p className="py-2 text-xl text-white font-bold">
           {protectedEditorConfig.description}
         </p>
       </div>
