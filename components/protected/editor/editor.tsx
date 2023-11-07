@@ -202,7 +202,7 @@ const Editor: FC<EditorProps> = ({
     slug: post.slug ?? `post-${v4()}`,
     image: post.image ?? "",
     categoryId: post.category_id ?? protectedEditorConfig.defaultCategoryId,
-    description: post.description ?? "Post description",
+    description: post.description ?? "Product description",
     content: content ?? protectedEditorConfig.placeholderContent,
   };
 
@@ -257,9 +257,9 @@ const Editor: FC<EditorProps> = ({
                 name="title"
                 render={({ field }) => (
                   <FormItem className="w-full max-w-md">
-                    <FormLabel>{protectedEditorConfig.formTitle}</FormLabel>
+                    <FormLabel className="text-white">{protectedEditorConfig.formTitle}</FormLabel>
                     <FormControl>
-                      <Input
+                      <Input className="text-black"
                         placeholder={protectedEditorConfig.placeHolderTitle}
                         {...field}
                       />
@@ -276,7 +276,7 @@ const Editor: FC<EditorProps> = ({
                   <FormItem className="w-full max-w-md">
                     <FormLabel>{protectedEditorConfig.slug}</FormLabel>
                     <FormControl>
-                      <Input
+                      <Input className="text-black"
                         placeholder={protectedEditorConfig.placeholderSlug}
                         {...field}
                       />
@@ -303,7 +303,7 @@ const Editor: FC<EditorProps> = ({
           </Card>
 
           {/* Category */}
-          <Card className="max-w-2xl">
+          <Card className="max-w-2xl bg-black">
             <CardHeader>
               <CardTitle>{protectedEditorConfig.categoryTitle}</CardTitle>
               <CardDescription>

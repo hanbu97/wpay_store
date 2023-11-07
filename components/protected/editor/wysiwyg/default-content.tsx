@@ -4,14 +4,14 @@ export const defaultEditorContent = {
     {
       type: "heading",
       attrs: { level: 2 },
-      content: [{ type: "text", text: "Introducing Next.js - Blog app" }],
+      content: [{ type: "text", text: "Introducing Your Product - WPay" }],
     },
     {
       type: "paragraph",
       content: [
         {
           type: "text",
-          text: " This is an full-stack blogging app. Built with Next.js 13 and Supabase",
+          text: " This is an full-stack payment & store app. Built with Circle Api and Supabase",
         },
       ],
     },
@@ -30,7 +30,7 @@ export const defaultEditorContent = {
           content: [
             {
               type: "paragraph",
-              content: [{ type: "text", text: "Bubble menu and slash menu" }],
+              content: [{ type: "text", text: "Web3 Login and Payment." }],
             },
           ],
         },
@@ -42,7 +42,7 @@ export const defaultEditorContent = {
               content: [
                 {
                   type: "text",
-                  text: "Image and Link insertion via url ",
+                  text: "Easy Operation and Management of Products.",
                 },
               ],
             },

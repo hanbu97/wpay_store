@@ -41,8 +41,8 @@ export const columns: ColumnDef<Draft>[] = [
       return (
         <div className="flex space-x-2">
           <div className="max-w-[500px] justify-start truncate font-medium">
-            <span className="inline-flex items-center rounded-full border border-gray-400 px-3 py-1 text-sm text-gray-500">
-              <label.icon className="mr-1 h-4 w-4" />
+            <span className="inline-flex items-center rounded-full border border-gray-400 px-3 py-1 text-sm text-white">
+              <label.icon className="mr-1 h-4 w-4 text-white" />
               {label.label}
             </span>
           </div>

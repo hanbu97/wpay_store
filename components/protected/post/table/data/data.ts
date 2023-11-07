@@ -35,12 +35,12 @@ export const categories = [
   },
   {
     value: "7b8781b0-b4fa-40e4-ac23-5310640eecd7",
-    label: "Marketing",
+    label: "Card",
     icon: CategoryMarketingIcon,
   },
   {
     value: "962f860d-ab0d-4650-ae93-8171c8b47169",
-    label: "Technology",
+    label: "Clothes",
     icon: CategoryTechnologyIcon,
   },
 ];

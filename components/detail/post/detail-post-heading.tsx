@@ -94,15 +94,15 @@ const DetailPostHeading: FC<DetailPostHeadingProps> = async ({
             <span className="text-sm">{date}</span>
           </div>
           {/* Category */}
-          <div className="inline-flex space-x-2 border-gray-400 border-opacity-50">
+          <div className="inline-flex space-x-2 border-gray-400 border-opacity-50 text-white">
             <p className="mt-0.5">
               <span className="sr-only">Category</span>
               <ArchiveIcon
-                className="h-4 w-4 text-gray-400"
+                className="h-4 w-4 text-white"
                 aria-hidden="true"
               />
             </p>
-            <span className="text-sm">{category}</span>
+            <span className="text-sm text-white">{category}</span>
           </div>
 
           {/* Reading time */}
