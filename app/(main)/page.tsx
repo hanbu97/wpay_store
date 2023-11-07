@@ -19,7 +19,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
   // Fetch total pages
   const { count } = await supabase
-    .from("posts")
+    .from("products")
     .select("*", { count: "exact", head: true });
 
   // Pagination
@@ -36,7 +36,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
   // Fetch posts
   const { data, error } = await supabase
-    .from("posts")
+    .from("products")
     .select(`*, categories(*), profiles(*)`)
     .eq("published", true)
     .order("created_at", { ascending: false })

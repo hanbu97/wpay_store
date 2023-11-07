@@ -86,7 +86,7 @@ export default async function CategoryPage({
   );
   // Fetch total pages
   const { count } = await supabase
-    .from("posts")
+    .from("products")
     .select("*", { count: "exact", head: true })
     .eq("category_id", category?.id ? category?.id : "");
 
@@ -109,7 +109,7 @@ export default async function CategoryPage({
   }
 
   const { data, error } = await supabase
-    .from("posts")
+    .from("products")
     .select(`*, categories(*), profiles(*)`)
     .match({ category_id: category?.id, published: true })
     .order("created_at", { ascending: false })
