@@ -27,9 +27,9 @@ const SharedNotFound = () => {
               <Link key={v4()} href={category.slug || ""}>
                 <li className="relative flex gap-x-6 border-b border-black/5 py-6">
                   <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg shadow-sm ring-1 ring-gray-900/10">
-                    <category.icon className="h-6 w-6 text-gray-600" />
+                    <category.icon className="h-6 w-6 text-white" />
                   </div>
-                  <div className="my-auto flex-auto items-center text-sm font-semibold leading-6 text-gray-900">
+                  <div className="my-auto flex-auto items-center text-sm font-semibold leading-6 text-white">
                     {category.title}
                   </div>
                   <div className="flex-none self-center">

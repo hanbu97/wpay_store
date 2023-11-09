@@ -43,7 +43,7 @@ const MainMobileNavigationMenu: FC<MainMobileNavigationMenuProps> = ({
             >
               <div className="group flex items-center gap-x-6 border-b border-black/5 px-8 py-3 text-base font-semibold leading-7 text-gray-600 transition-colors hover:bg-gray-200">
                 <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg border border-black/10 shadow-md shadow-black/5 transition duration-200 group-hover:bg-gray-50">
-                  <category.icon className="h-6 w-6" />
+                  <category.icon className="h-6 w-6 text-white" />
                 </div>
 
                 {category.title}

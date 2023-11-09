@@ -32,6 +32,9 @@ export const postEditFormSchema = z.object({
     .max(120, {
       message: "Title must not be longer than 120 characters.",
     }),
+  price: z.number().positive({
+    message: "Price must be a positive number."
+  }),
   slug: z
     .string()
     .min(2, {
@@ -57,6 +60,9 @@ export const postEditFormSchema = z.object({
 
 export const postUpdateSchema = z.object({
   id: z.string(),
+  price: z.number().positive({
+    message: "Price must be a positive number."
+  }),
   title: z.string(),
   slug: z.string(),
   categoryId: z.string(),

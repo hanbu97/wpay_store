@@ -200,6 +200,7 @@ const Editor: FC<EditorProps> = ({
   const defaultValues: Partial<EditorFormValues> = {
     title: post.title ?? "Untitled",
     slug: post.slug ?? `post-${v4()}`,
+    price: 0.0,
     image: post.image ?? "",
     categoryId: post.category_id ?? protectedEditorConfig.defaultCategoryId,
     description: post.description ?? "Product description",
@@ -219,6 +220,7 @@ const Editor: FC<EditorProps> = ({
     const response = await UpdatePost({
       id: post.id,
       title: data.title,
+      price: Number(data.price),
       slug: data.slug,
       image: data.image,
       description: data.description,
@@ -295,6 +297,35 @@ const Editor: FC<EditorProps> = ({
                         {protectedEditorConfig.generateSlug}
                       </Button>
                     </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </CardContent>
+          </Card>
+
+          {/* Product Price */}
+          <Card className="max-w-2xl">
+            <CardHeader>
+              <CardTitle>Product Price</CardTitle>
+              <CardDescription>
+                Product Price
+              </CardDescription>
+            </CardHeader>
+            <Separator className="mb-8" />
+            <CardContent className="space-y-4">
+              <FormField
+                control={form.control}
+                name="price"
+                render={({ field }) => (
+                  <FormItem className="w-full max-w-md">
+                    <FormLabel className="text-white">Price in USDC</FormLabel>
+                    <FormControl>
+                      <Input className="text-black"
+                        placeholder='Please provide the price in USDC for your product'
+                        {...field}
+                      />
+                    </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -516,7 +547,7 @@ const Editor: FC<EditorProps> = ({
           <div className="infline-flex flex items-center justify-start space-x-3">
             <Button
               type="submit"
-              className="flex !bg-gray-900 px-10 !text-white hover:!bg-gray-800"
+              className="flex !bg-gray-900 px-10 !text-white hover:!bg-gray-800 border border-white"
               disabled={isSaving}
             >
               {protectedEditorConfig.submit}
