@@ -5,6 +5,16 @@ export const postDeleteSchema = z.object({
   user_id: z.string(),
 });
 
+export const postPublishchema = z.object({
+  id: z.string(),
+  user_id: z.string(),
+});
+
+export const postUnPublishchema = z.object({
+  id: z.string(),
+  user_id: z.string(),
+});
+
 export const postSlugSchema = z.object({
   slug: z.string(),
 });

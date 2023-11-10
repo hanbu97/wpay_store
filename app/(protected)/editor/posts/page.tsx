@@ -1,11 +1,11 @@
 import PostTableEmpty from "@/components/protected/post/post-emtpy-table";
 import PostRefreshOnce from "@/components/protected/post/post-refresh-once";
 import PostTableTitle from "@/components/protected/post/post-table-title";
-import { columns } from "@/components/protected/post/table/columns";
-import { DataTable } from "@/components/protected/post/table/data-table";
+// import { ProductTable } from "@/components/protected/post/table/columns";
 import { protectedPostConfig } from "@/config/protected";
 import { Draft } from "@/types/collection";
-import type { Database } from "@/types/supabase";
+// import type { Database } from "@/types/supabase";
+import ProductTable from "@/components/protected/post/table/columns";
 import { createClient } from "@/utils/supabase/server";
 import { Metadata } from "next";
 import { cookies } from "next/headers";
@@ -48,7 +48,9 @@ const PostsPage: FC<PostsPageProps> = async ({ searchParams }) => {
         {data?.length && data?.length > 0 ? (
           <>
             <PostTableTitle />
-            <DataTable data={data ? data : []} columns={columns} />
+            {/* <DataTable data={data ? data : []} columns={columns} /> */}
+            {/* <DataTable data={data ? data : []} columns={columns} /> */}
+            <ProductTable data={data} />
           </>
         ) : (
           <PostTableEmpty />

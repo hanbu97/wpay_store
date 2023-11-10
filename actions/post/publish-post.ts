@@ -1,28 +1,21 @@
 "use server";
 
-import { postUpdateSchema } from "@/lib/validation/post";
-// import type { Database } from "@/types/supabase";
+import { postPublishchema, postUpdateSchema } from "@/lib/validation/post";
 import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
 import * as z from "zod";
 
-export async function UpdatePost(context: z.infer<typeof postUpdateSchema>) {
+export async function PublishPost(context: z.infer<typeof postPublishchema>) {
   const cookieStore = cookies();
   const supabase = createClient(cookieStore);
   try {
-    const post = postUpdateSchema.parse(context);
+    const post = postPublishchema.parse(context);
 
     const { data, error } = await supabase
       .from("drafts")
       .update({
         id: post.id,
-        title: post.title,
-        slug: post.slug,
-        category_id: post.categoryId,
-        description: post.description,
-        image: post.image,
-        price: post.price,
-        content: post.content,
+        published: true,
       })
       .match({ id: post.id })
       .select()
