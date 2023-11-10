@@ -200,7 +200,7 @@ const Editor: FC<EditorProps> = ({
   const defaultValues: Partial<EditorFormValues> = {
     title: post.title ?? "Untitled",
     slug: post.slug ?? `post-${v4()}`,
-    price: 0.0,
+    price: post.price ?? 0.0,
     image: post.image ?? "",
     categoryId: post.category_id ?? protectedEditorConfig.defaultCategoryId,
     description: post.description ?? "Product description",
@@ -217,15 +217,14 @@ const Editor: FC<EditorProps> = ({
     setShowLoadingAlert(true);
     setIsSaving(true);
 
+    const updatedData = {
+      ...data,
+      price: Number(data.price), // Convert price to a number
+    };
+
     const response = await UpdatePost({
       id: post.id,
-      title: data.title,
-      price: Number(data.price),
-      slug: data.slug,
-      image: data.image,
-      description: data.description,
-      content: content,
-      categoryId: data.categoryId,
+      ...updatedData
     });
 
     if (response) {
@@ -238,6 +237,15 @@ const Editor: FC<EditorProps> = ({
     setIsSaving(false);
     setShowLoadingAlert(false);
   }
+
+  const handlePriceChange = (value) => {
+    if (value === "") {
+      return null; // 空字符串时返回 null
+    } else if (!isNaN(value) && value[value.length - 1] !== ".") {
+      return parseFloat(value); // 如果是有效数字且不以小数点结尾，则转换为浮点数
+    }
+    return value; // 其他情况，如尾随小数点的情况，保持原样
+  };
 
   return (
     <>
@@ -324,6 +332,7 @@ const Editor: FC<EditorProps> = ({
                       <Input className="text-black"
                         placeholder='Please provide the price in USDC for your product'
                         {...field}
+                        onChange={(e) => field.onChange(handlePriceChange(e.target.value))}
                       />
                     </FormControl>
                     <FormMessage />
@@ -538,11 +547,29 @@ const Editor: FC<EditorProps> = ({
           </Card>
 
           <WysiwygEditor
-            defaultValue={content ? JSON.parse(content) : defaultEditorContent}
+            defaultValue={
+              content
+                ? (() => {
+                    try {
+                      return JSON.parse(content);
+                    } catch {
+                      console.log(content); // 打印 content
+                      return defaultEditorContent;
+                    }
+                  })()
+                : defaultEditorContent
+            }
             onDebouncedUpdate={(editor) => {
               setContent(JSON.stringify(editor?.getJSON()));
             }}
           />
+
+          {/* <WysiwygEditor
+            defaultValue={content ? JSON.parse(content) : defaultEditorContent}
+            onDebouncedUpdate={(editor) => {
+              setContent(JSON.stringify(editor?.getJSON()));
+            }}
+          /> */}
 
           <div className="infline-flex flex items-center justify-start space-x-3">
             <Button

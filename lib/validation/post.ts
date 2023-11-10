@@ -32,9 +32,12 @@ export const postEditFormSchema = z.object({
     .max(120, {
       message: "Title must not be longer than 120 characters.",
     }),
-  price: z.number().positive({
-    message: "Price must be a positive number."
-  }),
+  price: z.preprocess((value) => {
+    if (typeof value === "string" && value !== "") {
+      return parseFloat(value);
+    }
+    return value;
+  }, z.number().optional()),
   slug: z
     .string()
     .min(2, {

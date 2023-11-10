@@ -1,4 +1,3 @@
-
 export type Json =
   | string
   | number
@@ -35,6 +34,36 @@ export interface Database {
   }
   public: {
     Tables: {
+      authors: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: string
+          image: string | null
+          name: string | null
+          title: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          image?: string | null
+          name?: string | null
+          title?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          image?: string | null
+          name?: string | null
+          title?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       bookmarks: {
         Row: {
           created_at: string | null
@@ -55,14 +84,12 @@ export interface Database {
           {
             foreignKeyName: "bookmarks_id_fkey"
             columns: ["id"]
-            isOneToOne: true
-            referencedRelation: "products"
+            referencedRelation: "posts"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "bookmarks_user_id_fkey"
             columns: ["user_id"]
-            isOneToOne: false
             referencedRelation: "users"
             referencedColumns: ["id"]
           }
@@ -115,14 +142,12 @@ export interface Database {
           {
             foreignKeyName: "comments_post_id_fkey"
             columns: ["post_id"]
-            isOneToOne: false
-            referencedRelation: "products"
+            referencedRelation: "posts"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "comments_user_id_fkey"
             columns: ["user_id"]
-            isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["id"]
           }
@@ -137,9 +162,8 @@ export interface Database {
           description: string | null
           id: string
           image: string | null
-          price: number | null
-          published: boolean | null
           slug: string | null
+          status: string | null
           title: string | null
           updated_at: string | null
         }
@@ -151,9 +175,8 @@ export interface Database {
           description?: string | null
           id?: string
           image?: string | null
-          price?: number | null
-          published?: boolean | null
           slug?: string | null
+          status?: string | null
           title?: string | null
           updated_at?: string | null
         }
@@ -165,9 +188,8 @@ export interface Database {
           description?: string | null
           id?: string
           image?: string | null
-          price?: number | null
-          published?: boolean | null
           slug?: string | null
+          status?: string | null
           title?: string | null
           updated_at?: string | null
         }
@@ -175,20 +197,18 @@ export interface Database {
           {
             foreignKeyName: "drafts_author_id_fkey"
             columns: ["author_id"]
-            isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "drafts_category_id_fkey"
             columns: ["category_id"]
-            isOneToOne: false
             referencedRelation: "categories"
             referencedColumns: ["id"]
           }
         ]
       }
-      products: {
+      posts: {
         Row: {
           author_id: string | null
           category_id: string | null
@@ -197,7 +217,6 @@ export interface Database {
           description: string | null
           id: string
           image: string | null
-          price: number | null
           published: boolean | null
           slug: string | null
           title: string | null
@@ -211,7 +230,6 @@ export interface Database {
           description?: string | null
           id?: string
           image?: string | null
-          price?: number | null
           published?: boolean | null
           slug?: string | null
           title?: string | null
@@ -225,7 +243,6 @@ export interface Database {
           description?: string | null
           id?: string
           image?: string | null
-          price?: number | null
           published?: boolean | null
           slug?: string | null
           title?: string | null
@@ -233,16 +250,14 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "products_author_id_fkey"
+            foreignKeyName: "posts_author_id_fkey"
             columns: ["author_id"]
-            isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "products_category_id_fkey"
+            foreignKeyName: "posts_category_id_fkey"
             columns: ["category_id"]
-            isOneToOne: false
             referencedRelation: "categories"
             referencedColumns: ["id"]
           }
@@ -277,7 +292,6 @@ export interface Database {
           {
             foreignKeyName: "profiles_id_fkey"
             columns: ["id"]
-            isOneToOne: true
             referencedRelation: "users"
             referencedColumns: ["id"]
           }
@@ -403,7 +417,6 @@ export interface Database {
           {
             foreignKeyName: "objects_bucketId_fkey"
             columns: ["bucket_id"]
-            isOneToOne: false
             referencedRelation: "buckets"
             referencedColumns: ["id"]
           }

@@ -21,6 +21,7 @@ export async function UpdatePost(context: z.infer<typeof postUpdateSchema>) {
         category_id: post.categoryId,
         description: post.description,
         image: post.image,
+        price: post.price,
         content: post.content,
       })
       .match({ id: post.id })
