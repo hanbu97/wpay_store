@@ -85,7 +85,7 @@ export default async function CategoryPage({
   );
   // Fetch total pages
   const { count } = await supabase
-    .from("products")
+    .from("drafts")
     .select("*", { count: "exact", head: true })
     .eq("category_id", category?.id ? category?.id : "");
 

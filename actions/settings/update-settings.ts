@@ -1,7 +1,6 @@
 "use server";
 
 import { profileSchema } from "@/lib/validation/profile";
-import { Database } from "@/types/supabase";
 import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
 import * as z from "zod";

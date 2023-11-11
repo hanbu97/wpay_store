@@ -12,7 +12,7 @@ const detailCommentConfig = {
   successAdd: "Comment added",
   errorAdd: "Error adding comment",
   errorDeleted: "Error deleting comment",
-  leaveComment: "Leave a comment",
+  leaveComment: "Place Order",
 };
 
 export default detailCommentConfig;

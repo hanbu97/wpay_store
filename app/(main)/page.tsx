@@ -19,7 +19,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
   // Fetch total pages
   const { count } = await supabase
-    .from("products")
+    .from("drafts")
     .select("*", { count: "exact", head: true });
 
   // Pagination
