@@ -33,10 +33,9 @@ export default async function HomePage({ searchParams }: HomePageProps) {
       : 1;
   const from = (page - 1) * limit;
   const to = page ? from + limit : limit;
-
-  // Fetch posts
+  
   const { data, error } = await supabase
-    .from("products")
+    .from("drafts")
     .select(`*, categories(*), profiles(*)`)
     .eq("published", true)
     .order("created_at", { ascending: false })

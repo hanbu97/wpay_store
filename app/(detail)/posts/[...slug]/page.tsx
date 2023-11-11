@@ -11,7 +11,6 @@ import {
   CommentWithProfile,
   PostWithCategoryWithProfile,
 } from "@/types/collection";
-import type { Database } from "@/types/supabase";
 import { createClient } from "@/utils/supabase/server";
 import { format, parseISO } from "date-fns";
 import { Metadata } from "next";
@@ -45,7 +44,7 @@ async function getPost(params: { slug: string[] }) {
   const supabase = createClient(cookieStore);
 
   const response = await supabase
-    .from("products")
+    .from("drafts")
     .select(`*, categories(*), profiles(*)`)
     .match({ slug: slug, published: true })
     .single<PostWithCategoryWithProfile>();
@@ -132,9 +131,13 @@ export default async function PostPage({ params }: PostPageProps) {
   const supabase = createClient(cookieStore);
   // Get post data
   const post = await getPost(params);
+
+
   if (!post) {
     notFound();
   }
+
+
   // Set post views
   const slug = params?.slug?.join("/");
 
@@ -162,6 +165,7 @@ export default async function PostPage({ params }: PostPageProps) {
   const comments = await getComments(post.id as string);
   const readTime = readingTime(post.content ? post.content : "");
 
+  // console.log(post);
   return (
     <>
       <div className="min-h-full bg-gray-100 py-3">

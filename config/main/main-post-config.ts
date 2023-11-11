@@ -1,5 +1,5 @@
 const mainPostConfig = {
-  author: "Author",
+  author: "Sellor",
 };
 
 export default mainPostConfig;

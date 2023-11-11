@@ -47,7 +47,6 @@ interface MainPostItemProps {
 }
 
 const MainPostItem: React.FC<MainPostItemProps> = async ({ post }) => {
-  const readTime = readingTime(post.content ? post.content : "");
   const comments = await getComments(post.id ? post.id : "");
 
   return (
@@ -58,7 +57,7 @@ const MainPostItem: React.FC<MainPostItemProps> = async ({ post }) => {
           <Link href={`/posts/${post.slug}`}>
             <article className="relative isolate flex max-w-3xl flex-col gap-2 rounded-lg bg-white px-5 py-5 shadow-md shadow-gray-300 ring-1 ring-black/5 sm:gap-8 sm:px-10 sm:py-6 lg:flex-row">
               <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
-                <Image
+                {/* <Image
                   src={await getPublicImageUrl(post.id, post.image || "")}
                   alt={post.title ?? "Cover"}
                   height={256}
@@ -68,7 +67,7 @@ const MainPostItem: React.FC<MainPostItemProps> = async ({ post }) => {
                     shimmer(256, 256),
                   )}`}
                   className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
-                />
+                /> */}
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
               </div>
               <div>
@@ -97,12 +96,7 @@ const MainPostItem: React.FC<MainPostItemProps> = async ({ post }) => {
                         {format(parseISO(post.updated_at!), "dd/MM/yyyy")}
                       </span>
                     </div>
-                    <div className="inline-flex items-center text-gray-500">
-                      <Clock10Icon className="h-4 w-4" />
-                      <span className="ml-1">
-                        {getMinutes(readTime.minutes ? readTime.minutes : 0)}
-                      </span>
-                    </div>
+                   
                   </div>
                   <p className="mt-3 text-sm leading-6 text-gray-600">
                     {post.description}
@@ -116,12 +110,6 @@ const MainPostItem: React.FC<MainPostItemProps> = async ({ post }) => {
                       </span>
                     </div>
                     <div className="inline-flex items-center text-gray-500">
-                      <Clock10Icon className="h-4 w-4" />
-                      <span className="ml-1">
-                        {getMinutes(readTime.minutes)}
-                      </span>
-                    </div>
-                    <div className="inline-flex items-center text-gray-500">
                       <MessageCircleIcon className="h-4 w-4" />
                       <span className="ml-1">{comments?.length}</span>
                     </div>
@@ -131,7 +119,7 @@ const MainPostItem: React.FC<MainPostItemProps> = async ({ post }) => {
                 <div className="mt-3 flex border-t border-gray-900/5 pt-2">
                   <div className="relative flex items-center gap-x-2">
                     <Image
-                      src={post.profiles?.avatar_url ?? "/images/avatar.png"}
+                      src={post.profiles?.avatar_url ?? "/images/user-placeholder.png"}
                       alt={post.profiles?.full_name ?? "Avatar"}
                       height={40}
                       width={40}

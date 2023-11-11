@@ -4,7 +4,6 @@ import { mainCategoryConfig } from "@/config/main";
 import { seoData } from "@/config/root/seo";
 import { getOgImageUrl, getUrl } from "@/lib/utils";
 import { PostWithCategoryWithProfile } from "@/types/collection";
-import type { Database } from "@/types/supabase";
 import { createClient } from "@/utils/supabase/server";
 import { Metadata } from "next";
 import { cookies } from "next/headers";
@@ -109,12 +108,13 @@ export default async function CategoryPage({
   }
 
   const { data, error } = await supabase
-    .from("products")
+    .from("drafts")
     .select(`*, categories(*), profiles(*)`)
     .match({ category_id: category?.id, published: true })
     .order("created_at", { ascending: false })
     .range(from, to)
     .returns<PostWithCategoryWithProfile[]>();
+
 
   if (!data || error || !data.length) {
     notFound;
