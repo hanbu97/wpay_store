@@ -126,16 +126,27 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // return (
+  //   <html lang="en" suppressHydrationWarning>
+  //     <body className={fontSans.variable}>
+  //       <div className="bg-white font-sans">
+  //         {children}
+  //         {/* <VercelAnalytics /> */}
+  //         <Toaster position="top-center" />
+  //         <TailwindIndicator />
+  //       </div>
+  //     </body>
+  //   </html>
+  // );
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={fontSans.variable}>
-        <div className="bg-white font-sans">
-          {children}
-          <VercelAnalytics />
-          <Toaster position="top-center" />
-          <TailwindIndicator />
-        </div>
-      </body>
-    </html>
+    <body className={fontSans.variable}>
+      <div className="bg-white font-sans">
+        {children}
+        <Toaster position="top-center" />
+        <TailwindIndicator />
+      </div>
+    </body>
+  </html>
   );
 }

@@ -36,7 +36,7 @@ const protectedEditorConfig = {
   placeholderDescription:
     "Please provide a short description for your product",
   placeholderCategory: "Please choose a category",
-  placeholderContent: "Type here your blog post content",
+  placeholderContent: "Type here your product detail description",
   defaultCategoryId: "4db30a13-2797-4c7d-a0ce-e0c127287a39", // Science
   successMessage: "Your product has been updated",
   errorMessage: "Error updating your product",

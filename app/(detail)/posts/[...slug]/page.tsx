@@ -6,6 +6,7 @@ import {
 } from "@/components/detail/post";
 import { DetailPostScrollUpButton } from "@/components/detail/post/buttons";
 import DetailProductHeading from "@/components/detail/post/detail-product-heading";
+import { Button } from "@/components/ui/button";
 // import { seoData } from "@/config/root/seo";
 // import { getOgImageUrl, getUrl } from "@/lib/utils";
 import {
@@ -19,8 +20,12 @@ import { Metadata } from "next";
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import readingTime, { ReadTimeResults } from "reading-time";
+import { MetaMaskButton } from "@metamask/sdk-react-ui";
+import { MetamaskProvider } from "@/hooks/useMetamask";
 
 export const revalidate = 0;
+
+
 
 interface PostPageProps {
   params: {
@@ -133,6 +138,7 @@ async function getPost(params: { slug: string[] }) {
 // }
 
 export default async function PostPage({ params }: PostPageProps) {
+
   const cookieStore = cookies();
   const supabase = createClient(cookieStore);
   // Get post data
@@ -157,17 +163,6 @@ export default async function PostPage({ params }: PostPageProps) {
       session?.user?.user_metadata.avatar_url;
   }
 
-  // Get bookmark status
-  // const isBookmarked = await getBookmark(
-  //   post!.id as string,
-  //   session?.user.id as string,
-  // );
-
-  // Get comments
-  // const comments = await getComments(post!.id as string);
-
-  console.log(post);
-
   return (
     <>
       <div className="min-h-full bg-black py-3">
@@ -185,49 +180,29 @@ export default async function PostPage({ params }: PostPageProps) {
                   date={format(parseISO(post?.updated_at!), "MMMM dd, yyyy")}
                   category={post?.categories?.title as string}
                 />
-                {/* Top Floatingbar */}
-                {/* <div className="mx-auto">
-                  <DetailPostFloatingBar
-                    id={post?.id as string}
-                    title={post?.title as string}
-                    text={post?.description as string}
-                    url={`${getUrl()}${encodeURIComponent(
-                      `/posts/${post.slug}`,
-                    )}`}
-                    totalComments={comments?.length}
-                    isBookmarked={isBookmarked}
-                  />
-                </div> */}
               </div>
               {/* Content */}
               <div className="relative mx-auto max-w-3xl border-slate-500/50 py-5">
                 <div
                   className="lg:prose-md prose"
-                  dangerouslySetInnerHTML={{ __html: post?.content || "" }}
+                  dangerouslySetInnerHTML={{ __html: post?.description || "" }}
                 />
-              </div>
-              <div className="mx-auto mt-10">
-                {/* Bottom Floatingbar */}
-                {/* <DetailPostFloatingBar
-                  id={post?.id as string}
-                  title={post?.title as string}
-                  text={post?.description as string}
-                  url={`${getUrl()}${encodeURIComponent(
-                    `/posts/${post.slug}`,
-                  )}`}
-                  totalComments={comments?.length}
-                  isBookmarked={isBookmarked}
-                /> */}
               </div>
             </div>
           </div>
-          <DetailPostComment
-            postId={post?.id as string}
-            // comments={comments as CommentWithProfile[]}
-            comments={[] as CommentWithProfile[]}
-          />
+          <Button
+            type="button"
+            className="group mt-8 flex flex-col w-full rounded-lg bg-gradient-to-t from-gray-200 via-gray-100 to-gray-50 p-2 text-center text-gray-400 shadow-md shadow-black/5 ring-1 ring-black/10 transition duration-200 hover:bg-gradient-to-tr hover:from-gray-200 hover:via-gray-100 hover:to-gray-50 active:scale-[96%] active:ring-black/20"
+              >
+                <span className="text-gray-600 text-lg font-bold">
+                  Place Order
+                </span>
+          </Button>
+          {/* <MetamaskProvider> */}
+              {/* <MetaMaskButton theme={"light"} color="white"></MetaMaskButton> */}
+          {/* </MetamaskProvider> */}
+         
         </div>
-        <DetailPostScrollUpButton />
       </div>
     </>
   );
