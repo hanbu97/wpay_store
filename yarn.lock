@@ -1247,7 +1247,7 @@
     viem latest
     wagmi "^1.3.8"
 
-"@metamask/sdk-react@0.12.0":
+"@metamask/sdk-react@0.12.0", "@metamask/sdk-react@^0.12.0":
   version "0.12.0"
   resolved "https://registry.npmmirror.com/@metamask/sdk-react/-/sdk-react-0.12.0.tgz#2072267692aad8e3462a73685f8d9c1a2520fc7d"
   integrity sha512-4kzsKDCsGkL8ZvHDmQGFXUW8BcR2g9daHGQtpKVFpdeER6bZbcjYKY2FQMcgQAHC2lA0TTrTjsMHP7yj8JNwrg==

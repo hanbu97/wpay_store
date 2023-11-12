@@ -16,6 +16,7 @@
     "@heroicons/react": "^2.0.18",
     "@hookform/resolvers": "^3.3.2",
     "@metamask/sdk": "^0.12.0",
+    "@metamask/sdk-react": "^0.12.0",
     "@metamask/sdk-react-ui": "^0.12.0",
     "@picketapi/picket-node": "^0.0.11",
     "@picketapi/picket-react": "^0.0.75",
