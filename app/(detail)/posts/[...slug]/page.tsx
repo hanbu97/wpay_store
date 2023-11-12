@@ -22,6 +22,7 @@ import { notFound } from "next/navigation";
 import { MetaMaskButton } from "@metamask/sdk-react-ui";
 import { MetamaskProvider } from "@/hooks/useMetamask";
 import DetailPostSignInToPurchase from "@/components/detail/post/comment/detail-post-sign-in-to-purchase";
+import { useState } from "react";
 
 export const revalidate = 0;
 

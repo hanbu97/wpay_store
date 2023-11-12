@@ -1,20 +1,19 @@
 import { SeoType } from "types";
 
 export const seoData: SeoType = {
-  title: "Multi-user, full-stack blogging application",
-  subTitle:
-    "Multi-user, full-stack blogging app built with Next.js and Supabase",
-  absoluteTitle: "WPay: Payment & Store",
-  ogTitle: "WPay: Payment & Store",
+  title: "Web3 Payment and E-commerce Store",
+  subTitle: "Innovative Web3 Payment Solutions and Online Store Built with Next.js",
+  absoluteTitle: "WPay: Revolutionizing E-commerce with Web3 Technology",
+  ogTitle: "WPay: Revolutionizing E-commerce with Web3 Technology",
   author: {
     name: "Tim",
-    twitterUrl: "https://twitter.com/timtbdev",
-    twitterAddress: "@timtbdev",
+    twitterUrl: "https://twitter.com/waters_pay",
+    twitterAddress: "@waters_pay",
   },
   description:
-    "Multi-user, Fullstack, Blogging, applicaiton, blog, app, Next.js, Supabase, Supabase Database, Supabase Auth, Supabase Storage, TailwindCSS, TypeScript, Shadcn-ui, Radix-ui, HeadlessUi, NodeMailer, ConvertKit, Vercel OG, React-Hook-Form, React-Drop-Zone, Zod, HeroIcons, Lucide, Novel, Vaul, Uppy",
+    "Web3, E-commerce, Payment Solutions, Online Store, Next.js, Blockchain, Crypto Payments, Ethereum, Smart Contracts, Decentralized, TailwindCSS, TypeScript, React-Hook-Form, React-Drop-Zone, NodeMailer, Solidity, Metamask, Web3.js, Ethers.js, Vercel, Digital Wallets, NFT, Non-Fungible Tokens, Decentralized Finance, DeFi",
   keywords: [
-    "Multi-user, Fullstack, Blogging, applicaiton, blog, app, Next.js, Supabase, Supabase Database, Supabase Auth, Supabase Storage, TailwindCSS, TypeScript, Shadcn-ui, Radix-ui, HeadlessUi, NodeMailer, ConvertKit, Vercel OG, React-Hook-Form, React-Drop-Zone, Zod, HeroIcons, Lucide, Novel, Vaul, Uppy",
+    "Web3, E-commerce, Payment Solutions, Online Store, Next.js, Blockchain, Crypto Payments, Ethereum, Smart Contracts, Decentralized, TailwindCSS, TypeScript, React-Hook-Form, React-Drop-Zone, NodeMailer, Solidity, Metamask, Web3.js, Ethers.js, Vercel, Digital Wallets, NFT, Non-Fungible Tokens, Decentralized Finance, DeFi",
   ],
-  tags: ["Next.js", "Supabase", "TailwindCSS"],
+  tags: ["Web3", "Circle", "USDC", "Blockchain", "E-commerce", "Crypto Payments"],
 };
