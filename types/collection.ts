@@ -1,8 +1,10 @@
-import { Database } from "./supabase";
+// import { Database } from "./supabase";
+
+import { Database } from "./supabase.ts";
 
 export type Category = Database["public"]["Tables"]["categories"]["Row"];
-export type Author = Database["public"]["Tables"]["authors"]["Row"];
-export type Post = Database["public"]["Tables"]["posts"]["Row"];
+export type Sellor = Database["public"]["Tables"]["sellors"]["Row"];
+export type Post = Database["public"]["Tables"]["products"]["Row"];
 export type Comment = Database["public"]["Tables"]["comments"]["Row"];
 export type BookMark = Database["public"]["Tables"]["bookmarks"]["Row"];
 export type Profile = Database["public"]["Tables"]["profiles"]["Row"];
