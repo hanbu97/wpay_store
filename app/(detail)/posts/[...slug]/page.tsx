@@ -19,7 +19,6 @@ import { format, parseISO } from "date-fns";
 import { Metadata } from "next";
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
-import readingTime, { ReadTimeResults } from "reading-time";
 import { MetaMaskButton } from "@metamask/sdk-react-ui";
 import { MetamaskProvider } from "@/hooks/useMetamask";
 
@@ -121,21 +120,6 @@ async function getPost(params: { slug: string[] }) {
 //   };
 // }
 
-// async function getComments(postId: string) {
-//   const cookieStore = cookies();
-//   const supabase = createClient(cookieStore);
-//   const { data: comments, error } = await supabase
-//     .from("comments")
-//     .select("*, profiles(*)")
-//     .eq("post_id", postId)
-//     .order("created_at", { ascending: true })
-//     .returns<CommentWithProfile[]>();
-
-//   if (error) {
-//     console.error(error.message);
-//   }
-//   return comments;
-// }
 
 export default async function PostPage({ params }: PostPageProps) {
 

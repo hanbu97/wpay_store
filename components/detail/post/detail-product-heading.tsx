@@ -146,16 +146,6 @@ const DetailProductHeading: FC<DetailPostHeadingProps> = async ({
               </p>
               <span className="text-sm">{category}</span>
             </div>
-            {/* Reading time */}
-            <div className="flex space-x-2 border-l border-gray-400 border-opacity-50 pl-3.5">
-              <p className="mt-0.5">
-                <span className="sr-only">Minutes to read</span>
-                <ClockIcon
-                  className="h-4 w-4 text-gray-400"
-                  aria-hidden="true"
-                />
-              </p>
-            </div>
           </div>
         </div>
       </div>
