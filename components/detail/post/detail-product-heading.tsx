@@ -5,18 +5,21 @@ import { cookies } from "next/headers";
 import Image from "next/image";
 import { FC } from "react";
 
-async function getPublicImageUrl(postId: string, fileName: string) {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
-  const bucketName =
-    process.env.NEXT_PUBLIC_SUPABASE_STORAGE_BUCKET_POSTS || "posts";
-  const { data } = supabase.storage
-    .from(bucketName)
-    .getPublicUrl(`${postId}/${fileName}`);
+// async function getPublicImageUrl(postId: string, fileName: string) {
+//   const cookieStore = cookies();
+//   const supabase = createClient(cookieStore);
+//   const bucketName =
+//     process.env.NEXT_PUBLIC_SUPABASE_STORAGE_BUCKET_POSTS || "posts";
+//   const { data } = supabase.storage
+//     .from(bucketName)
+//     .getPublicUrl(`${postId}/${fileName}`);
 
-  if (data && data.publicUrl) return data.publicUrl;
+//   if (data && data.publicUrl) return data.publicUrl;
 
-  return "/images/not-found.jpg";
+//   return "/images/not-found.jpg";
+// }
+
+async function getPublicImageUrl(postId: string) {
 }
 
 interface DetailPostHeadingProps {
@@ -38,6 +41,8 @@ const DetailProductHeading: FC<DetailPostHeadingProps> = async ({
   date,
   category,
 }) => {
+
+  getPublicImageUrl(id);
   return (
     <section className="flex flex-col items-start justify-between">
       <div className="relative w-full">

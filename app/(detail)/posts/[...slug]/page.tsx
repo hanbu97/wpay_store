@@ -20,13 +20,10 @@ import { Metadata } from "next";
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import { MetaMaskButton } from "@metamask/sdk-react-ui";
-import { MetamaskProvider } from "@/hooks/useMetamask";
 import DetailPostSignInToPurchase from "@/components/detail/post/comment/detail-post-sign-in-to-purchase";
 import { useState } from "react";
 
 export const revalidate = 0;
-
-
 
 interface PostPageProps {
   params: {
@@ -158,7 +155,7 @@ export default async function PostPage({ params }: PostPageProps) {
               <div className="relative mx-auto max-w-4xl py-2">
                 {/* Heading */}
                 <DetailProductHeading
-                  id={post?.id}
+                  id={post?.id ?? ''}
                   title={post?.title as string}
                   image={post?.image as string}
                   authorName={post?.profiles.full_name as string}
