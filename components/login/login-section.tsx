@@ -70,6 +70,7 @@ const LoginSection: React.FC<LoginSectionProps> = ({ setOpen }) => {
         },
       },
     });
+
     router.refresh();
   }
 

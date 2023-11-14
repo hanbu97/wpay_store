@@ -23,8 +23,13 @@ async function getUserId() {
   if (error) {
     console.log("Error has occured while getting UserId!");
     console.log("Error message : ", error.message);
+    console.log("Not Found session");
     return null;
+  } else {
+    console.log("Found session");
+    console.log(session?.user);
   }
+
 
   return session ? session.user.id : null;
 }

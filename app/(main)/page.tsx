@@ -1,6 +1,6 @@
 import { MainPostItem, MainPostItemLoading } from "@/components/main";
 import { SharedEmpty, SharedPagination } from "@/components/shared";
-import { PostWithCategoryWithProfile } from "@/types/collection";
+import { PostWithCategoryWithProfile, Profile } from "@/types/collection";
 import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
@@ -16,6 +16,29 @@ interface HomePageProps {
 export default async function HomePage({ searchParams }: HomePageProps) {
   const cookieStore = cookies();
   const supabase = createClient(cookieStore);
+
+  // check wallet
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
+  if (session) {
+      console.log("Session Found");
+
+      const userId = session.user.id;
+      const { data, error } = await supabase
+        .from("profiles")
+        .select("*")
+        .match({ id: userId })
+        .single<Profile>();
+
+      console.log(data);
+
+      // const 
+
+  } else {
+    console.log("Session Notfound");
+  }
 
   // Fetch total pages
   const { count } = await supabase
