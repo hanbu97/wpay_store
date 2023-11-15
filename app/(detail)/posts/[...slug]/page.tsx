@@ -19,7 +19,7 @@ import { format, parseISO } from "date-fns";
 import { Metadata } from "next";
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
-import { MetaMaskButton } from "@metamask/sdk-react-ui";
+// import { MetaMaskButton } from "@metamask/sdk-react-ui";
 import DetailPostSignInToPurchase from "@/components/detail/post/comment/detail-post-sign-in-to-purchase";
 import { useState } from "react";
 
@@ -148,7 +148,7 @@ export default async function PostPage({ params }: PostPageProps) {
       session?.user?.user_metadata.picture ||
       session?.user?.user_metadata.avatar_url;
       console.log("Session Found");
-      console.log(session?.user);
+      // console.log(session?.user);
   } else {
     console.log("Session Notfound");
   }
@@ -188,8 +188,7 @@ export default async function PostPage({ params }: PostPageProps) {
                   Place Order
                 </span>
           </Button> */}
-          <DetailPostSignInToPurchase product={post} />
-
+          <DetailPostSignInToPurchase product={post}/>
           
           {/* <MetamaskProvider> */}
               {/* <MetaMaskButton theme={"light"} color="white"></MetaMaskButton> */}

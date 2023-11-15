@@ -34,10 +34,7 @@ function getDataFieldValue(tokenRecipientAddress, tokenAmount) {
   ]);
 }
 
-
-const DetailPostSignInToPurchase = (
-  product: PostWithCategoryWithProfile | null
-) => {
+const DetailPostSignInToPurchase = ({ product }: { product: PostWithCategoryWithProfile | null }) => {
   const [sdk, setSDK] = useState<MetaMaskSDK>();
   const [response, setResponse] = useState<any>('');
   const [connected, setConnected] = useState(false);
@@ -161,13 +158,37 @@ const DetailPostSignInToPurchase = (
     console.log("termintated and reset");
   };
 
+  // async function sendTokenTransaction(tokenContractAddress, tokenRecipientAddress, tokenAmount) {
+  //   const dataFieldValue = getDataFieldValue(tokenRecipientAddress, tokenAmount);
+  
+  //   const transactionParameters = {
+  //       from: sdk!.getProvider().selectedAddress, // 使用 MetaMask 选定的地址
+  //       to: tokenContractAddress,      // 代币合约地址
+  //       data: dataFieldValue           // 编码后的数据字段
+  //   };
+  
+  //   try {
+  //       const txHash = await sdk!.getProvider().request({
+  //           method: 'eth_sendTransaction',
+  //           params: [transactionParameters],
+  //       });
+  //       console.log('Transaction hash:', txHash);
+  //   } catch (error) {
+  //       console.error('Error sending transaction:', error);
+  //   }
+  // }
+
   async function sendTokenTransaction(tokenContractAddress, tokenRecipientAddress, tokenAmount) {
-    const dataFieldValue = getDataFieldValue(tokenRecipientAddress, tokenAmount);
+    // 假设代币有6位小数
+    const decimals = 6;
+    const amountInTokenUnits = Math.round(tokenAmount * Math.pow(10, decimals));
+  
+    const dataFieldValue = getDataFieldValue(tokenRecipientAddress, amountInTokenUnits);
   
     const transactionParameters = {
         from: sdk!.getProvider().selectedAddress, // 使用 MetaMask 选定的地址
-        to: tokenContractAddress,      // 代币合约地址
-        data: dataFieldValue           // 编码后的数据字段
+        to: tokenContractAddress,                // 代币合约地址
+        data: dataFieldValue                     // 编码后的数据字段
     };
   
     try {
@@ -180,6 +201,7 @@ const DetailPostSignInToPurchase = (
         console.error('Error sending transaction:', error);
     }
   }
+  
 
   useEffect(() => {
     if (!sdk?.isInitialized()) {
@@ -222,6 +244,7 @@ const DetailPostSignInToPurchase = (
     console.log('connectAndSign');
 
     try {
+      terminate();
       const signResult = await sdk?.connectAndSign({
         msg: 'Your order id is: xxxxxxxx. Order at: 1111111111'
       });
@@ -243,10 +266,11 @@ const DetailPostSignInToPurchase = (
       }
 
       // send usdc
-      const to = '0x440a29ac73dC9b342c61098bdf8a9401A28c9534';
+      // const to = '0x440a29ac73dC9b342c61098bdf8a9401A28c9534';
+      const to = product?.pay_address;
       const usdcAddress = '0x07865c6E87B9F70255377e024ace6630C1Eaa37F';
       const amount = '10'; 
-      await sendTokenTransaction(usdcAddress, to, 1000000);
+      await sendTokenTransaction(usdcAddress, to, product?.price);
 
       console.log("pay succeed!");
       terminate();
