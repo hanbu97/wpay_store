@@ -14,6 +14,7 @@ import {
 import SDKContainer from "./SDKContainer";
 import { ethers } from 'ethers';
 import Web3 from 'web3';
+import { PostWithCategoryWithProfile } from "@/types/collection";
 
 function getDataFieldValue(tokenRecipientAddress, tokenAmount) {
   const web3 = new Web3();
@@ -34,7 +35,9 @@ function getDataFieldValue(tokenRecipientAddress, tokenAmount) {
 }
 
 
-const DetailPostSignInToPurchase = () => {
+const DetailPostSignInToPurchase = (
+  product: PostWithCategoryWithProfile | null
+) => {
   const [sdk, setSDK] = useState<MetaMaskSDK>();
   const [response, setResponse] = useState<any>('');
   const [connected, setConnected] = useState(false);

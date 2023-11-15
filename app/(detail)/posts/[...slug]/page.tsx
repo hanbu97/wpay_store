@@ -188,7 +188,7 @@ export default async function PostPage({ params }: PostPageProps) {
                   Place Order
                 </span>
           </Button> */}
-          <DetailPostSignInToPurchase />
+          <DetailPostSignInToPurchase product={post} />
 
           
           {/* <MetamaskProvider> */}
