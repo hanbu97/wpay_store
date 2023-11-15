@@ -263,6 +263,7 @@ export interface Database {
           id: string
           updated_at: string | null
           username: string | null
+          wallet_id: string | null
           website: string | null
         }
         Insert: {
@@ -273,6 +274,7 @@ export interface Database {
           id: string
           updated_at?: string | null
           username?: string | null
+          wallet_id?: string | null
           website?: string | null
         }
         Update: {
@@ -283,6 +285,7 @@ export interface Database {
           id?: string
           updated_at?: string | null
           username?: string | null
+          wallet_id?: string | null
           website?: string | null
         }
         Relationships: [

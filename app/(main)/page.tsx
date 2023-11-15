@@ -171,6 +171,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
           .update({
             id: data?.id,
             address: wallet.address,
+            wallet_id: wallet.id,
           })
           .match({ id: data?.id })
           .select()
