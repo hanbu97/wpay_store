@@ -135,8 +135,8 @@ export default async function PostPage({ params }: PostPageProps) {
   // Check user logged in or not
   let username = null;
   let profileImage = null;
-  let profileWallet = null;
-  let profileEmail = null;
+  // let profileWallet = null;
+  // let profileEmail = null;
 
   const {
     data: { session },
@@ -144,9 +144,9 @@ export default async function PostPage({ params }: PostPageProps) {
 
   if (session) {
     username = session.user?.user_metadata.full_name;
-    profileImage =
-      session?.user?.user_metadata.picture ||
-      session?.user?.user_metadata.avatar_url;
+    // profileImage =
+    //   session?.user?.user_metadata.picture ||
+    //   session?.user?.user_metadata.avatar_url;
       console.log("Session Found");
       // console.log(session?.user);
   } else {

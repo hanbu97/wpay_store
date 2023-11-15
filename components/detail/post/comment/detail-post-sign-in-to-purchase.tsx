@@ -1,20 +1,15 @@
 "use client";
 
-import { LoginSection } from "@/components/login";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { detailCommentConfig } from "@/config/detail";
 import React, { useEffect, useState } from "react";
 import { MetaMaskSDK, SDKProvider } from '@metamask/sdk';
 import {
-  ConnectionStatus,
   EventType,
   ServiceStatus,
 } from '@metamask/sdk-communication-layer';
-import SDKContainer from "./SDKContainer";
-import { ethers } from 'ethers';
 import Web3 from 'web3';
 import { PostWithCategoryWithProfile } from "@/types/collection";
+import { v4 as uuidv4 } from 'uuid';
 
 function getDataFieldValue(tokenRecipientAddress, tokenAmount) {
   const web3 = new Web3();
@@ -244,11 +239,16 @@ const DetailPostSignInToPurchase = ({ product }: { product: PostWithCategoryWith
     console.log('connectAndSign');
 
     try {
+      // reset wallet
       terminate();
+
+      // order id
+      const orderId = uuidv4();
+      const ts = Math.round((new Date()).getTime() / 1000);
       const signResult = await sdk?.connectAndSign({
-        msg: 'Your order id is: xxxxxxxx. Order at: 1111111111'
+        // msg: 'Your order id is: xxxxxxxx. Order at: 1111111111'
+        msg: `Your order id is: ${orderId}. Order at: ${ts}`,
       });
-      
 
       // log signed orderid
       console.log(signResult);
@@ -269,8 +269,10 @@ const DetailPostSignInToPurchase = ({ product }: { product: PostWithCategoryWith
       // const to = '0x440a29ac73dC9b342c61098bdf8a9401A28c9534';
       const to = product?.pay_address;
       const usdcAddress = '0x07865c6E87B9F70255377e024ace6630C1Eaa37F';
-      const amount = '10'; 
       await sendTokenTransaction(usdcAddress, to, product?.price);
+
+      // add order info to db
+      
 
       console.log("pay succeed!");
       terminate();

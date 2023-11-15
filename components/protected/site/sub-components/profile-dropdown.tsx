@@ -47,19 +47,19 @@ const ProfileDropDown = () => {
     return () => subscription.unsubscribe();
   }, [supabase.auth]);
 
-  useEffect(() => {
-    async function fetchAvatar() {
-      const { data, error } = await supabase
-        .from("profiles")
-        .select("*")
-        .match({ id: session?.user.id })
-        .single<Profile>();
-      if (data) {
-        setAvatarUrl(data.avatar_url ? data.avatar_url : "");
-      }
-    }
-    fetchAvatar();
-  }, [session, supabase]);
+  // useEffect(() => {
+  //   async function fetchAvatar() {
+  //     const { data, error } = await supabase
+  //       .from("profiles")
+  //       .select("*")
+  //       .match({ id: session?.user.id })
+  //       .single<Profile>();
+  //     if (data) {
+  //       setAvatarUrl(data.avatar_url ? data.avatar_url : "");
+  //     }
+  //   }
+  //   fetchAvatar();
+  // }, [session, supabase]);
 
   return (
     <>

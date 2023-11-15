@@ -152,7 +152,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
     data: { session },
   } = await supabase.auth.getSession();
 
-  if (session) {
+  if (session && session.user.id != null && session.user.id != undefined) {
       console.log("Session Found");
 
       const userId = session.user.id;
@@ -162,7 +162,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
         .match({ id: userId })
         .single<Profile>();
 
-      if (data?.address == null) {
+      if (data?.address == null && data?.id != null && data?.id != undefined) {
         const wallet = await createWallet();
         if (wallet != null) {
            // add wallet to account
