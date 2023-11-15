@@ -78,8 +78,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 // })
 //   }
   
-
-  const createWallet = async () => {
+  const createWallet = async (): Promise<Wallet | null> => {
     // const options = {
     //   method: 'POST',
     //   headers: {'Content-Type': 'application/json', Authorization: 'Bearer TEST_API_KEY:0e7621ef8bfe37335d4ff9a03cfca8e4:5f276f7cbb2e5ec43c35fc32bbf09ecf'},
@@ -139,9 +138,11 @@ export default async function HomePage({ searchParams }: HomePageProps) {
       const responseData = await response.json() as NewWallet;
 
       const data = responseData.data.wallets[0];
-      console.log(data);
+
+      return data;
     } catch (error) {
       console.error(error);
+      return null; 
     }
   };
 
@@ -161,10 +162,21 @@ export default async function HomePage({ searchParams }: HomePageProps) {
         .match({ id: userId })
         .single<Profile>();
 
-      await createWallet();
-
-      // console.log(data);
-
+      if (data?.address == null) {
+        const wallet = await createWallet();
+        if (wallet != null) {
+           // add wallet to account
+          const { error } = await supabase
+          .from("profiles")
+          .update({
+            id: data?.id,
+            address: wallet.address,
+          })
+          .match({ id: data?.id })
+          .select()
+          .single();
+        }
+      } 
   } else {
     console.log("Session Notfound");
   }
