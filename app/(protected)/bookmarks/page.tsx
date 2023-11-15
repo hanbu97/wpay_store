@@ -96,7 +96,7 @@ const BookmarksPage: React.FC<BookmarksPageProps> = async ({
       <div className="mx-auto max-w-5xl p-4 sm:p-6 lg:p-8">
         {transactions?.length && transactions?.length > 0 ? (
           <>
-            <ProtectedBookMarkTableTitle />
+            {/* <ProtectedBookMarkTableTitle /> */}
             <OrderTable data={transactions} />
           </>
         ) : (
