@@ -137,6 +137,7 @@ export interface Database {
           description: string | null
           id: string
           image: string | null
+          pay_address: string | null
           price: number | null
           published: boolean | null
           slug: string | null
@@ -151,6 +152,7 @@ export interface Database {
           description?: string | null
           id?: string
           image?: string | null
+          pay_address?: string | null
           price?: number | null
           published?: boolean | null
           slug?: string | null
@@ -165,6 +167,7 @@ export interface Database {
           description?: string | null
           id?: string
           image?: string | null
+          pay_address?: string | null
           price?: number | null
           published?: boolean | null
           slug?: string | null
