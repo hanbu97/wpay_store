@@ -3,8 +3,8 @@
 import { SharedError } from "@/components/shared";
 import React from "react";
 
-const Error = () => {
-  return <SharedError />;
-};
+// const Error = () => {
+//   return <SharedError />;
+// };
 
-export default Error;
+// export default Error;
