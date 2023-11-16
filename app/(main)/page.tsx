@@ -79,11 +79,6 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 //   }
   
   const createWallet = async (): Promise<Wallet | null> => {
-    // const options = {
-    //   method: 'POST',
-    //   headers: {'Content-Type': 'application/json', Authorization: 'Bearer TEST_API_KEY:0e7621ef8bfe37335d4ff9a03cfca8e4:5f276f7cbb2e5ec43c35fc32bbf09ecf'},
-    //   body: '{"idempotencyKey":"<UNIQUE_UUID>","entitySecretCipherText":"<GENERATED_ENTITY_SECRET_CIPHERTEXT>","name":"<WALLET_SET_NAME>"}'
-    // };
     const publicKeyPem = `-----BEGIN RSA PUBLIC KEY-----
     MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAznSDm8UhlliFKh8NNVhg
     TjkWuMv8V3eN53C+fLgdT8CmCnFEtOpqO1/ID/YSjoAxZTgIRIcQ/bTQKaomqS4l
